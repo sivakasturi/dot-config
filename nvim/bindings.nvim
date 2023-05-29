@@ -1,0 +1,48 @@
+" % sign indicates the current file name
+
+" Common 
+nmap <leader><leader> /<++><enter>cf>
+nmap <leader>t :terminal<enter>
+imap jkj <Esc>
+
+" HTML
+autocmd Filetype html vmap <leader>c :s/^\(.*\)$/<!-- \1 -->/<enter>:noh<enter>
+autocmd Filetype html vmap <leader>u :s/^<!-- \(.*\) -->$/\1/<enter>:noh<enter>
+
+" CSS
+autocmd Filetype css vmap <leader>c :s/^\(.*\)$/\/\* \1 \*\//<enter>:noh<enter>
+autocmd Filetype css vmap <leader>u :s/^\/\* \(.*\) \*\/$/\1/<enter>:noh<enter>
+autocmd Filetype css nmap <leader>! O/* ---------- <++> ----------- */<esc>I<esc>
+autocmd Filetype css nmap <leader>c V:s/^\(.*\)$/\/\* \1 \*\//<enter>:noh<enter>
+
+" R 
+autocmd Filetype r nmap <leader>r :w<enter>:!Rscript %<enter>
+
+
+" R Markdown commands
+autocmd Filetype rmd nmap <leader>w :w<enter>:!echo<space>"require(rmarkdown);<space>render('%')"<space>\|<space>R<space>--vanilla<enter><enter>
+autocmd Filetype rmd nmap <leader>, o<Esc>i-<space>
+
+" Latex commands
+autocmd Filetype tex nmap <leader>w :w<enter>:!pdflatex<space>%<enter><enter>
+autocmd Filetype tex nmap <leader>b I\begin{<++>}<esc>o\end{<++>}<esc>k^f<cf>
+autocmd Filetype tex nmap <leader>- o\item<space>
+
+
+" Python
+autocmd Filetype python nmap <leader>r :w<enter>:!python3 %<enter>
+autocmd Filetype python vmap <leader>c :s/^/# /<enter>:noh<enter>
+autocmd Filetype python vmap <leader>u :s/^# //<enter>:noh<enter>
+
+" Go
+autocmd Filetype go vmap <leader>c :s/^/\/\/ /<enter>:noh<enter>
+autocmd Filetype go vmap <leader>u :s/^\/\/ //<enter>:noh<enter>
+
+" Rust
+autocmd Filetype rust nmap <leader>r :w<enter>:!cargo run %<enter>
+
+" Godot
+autocmd Filetype gdscript vmap <leader>c :s/^/# /<enter>:noh<enter>
+autocmd Filetype gdscript vmap <leader>u :s/^# //<enter>:noh<enter>
+
+
